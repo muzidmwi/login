@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import UserInput from "./UserInput";
+import UserButton from "./UserButton";
 
 function Header() {
   return (
@@ -7,32 +9,26 @@ function Header() {
       <div className="flex items-center justify-between w-full max-w-screen-lg px-4">
         <div className="flex items-center">
           <Link to="/">
-            <div className="text-center text-black text-[32px] font-normal font-['Jacques Francois Shadow'] leading-9">
-              solo living
+            <div className="items-center text-center text-black text-[32px] font-bold leading-9 flex flex-col">
+              <span>solo</span>
+              <span>living</span>
             </div>
           </Link>
         </div>
-        <div className="w-[457px] h-10 pl-3 pr-4 py-2 bg-white rounded-lg border border-[#e0e0e0] flex items-center mx-4">
-          <input
+        <div className="w-[457px] h-10 pl-3 pr-4 py-2 mx-4">
+          <UserInput
             type="text"
             placeholder="Search tickets..."
-            className="w-full outline-none text-[#828282] text-base font-normal font-['Inter'] leading-normal"
           />
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="items-center hidden space-x-4 md:flex">d
           <Link to="/login">
-            <div className="h-[52px] px-4 py-2 bg-[#0803ff] rounded-3xl flex items-center justify-center">
-              <div className="text-white text-2xl font-bold font-['Inter'] leading-9">
-                로그인
-              </div>
-            </div>
+          <UserButton className="flex flex-col items-center justify-center h-12 px-4 py-2 text-lg font-bold leading-9 text-white bg-blue-500 rounded-3xl" text="로그인">
+            </UserButton>
           </Link>
           <Link to="/login/signup">
-            <div className="h-[52px] px-4 py-2 bg-black rounded-3xl flex items-center justify-center">
-              <div className="text-white text-2xl font-bold font-['Inter'] leading-9">
-                회원 가입
-              </div>
-            </div>
+          <UserButton className="flex flex-col items-center justify-center h-12 px-4 py-2 text-lg font-bold leading-9 text-white bg-stone-700 rounded-3xl" text="회원가입">
+            </UserButton>
           </Link>
         </div>
       </div>
