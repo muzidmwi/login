@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -9,16 +9,23 @@ function App() {
   return (
     <div className="absolute w-full">
       <BrowserRouter>
-        <Header />
+        <ConditionalHeader />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login/signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
+}
+
+function ConditionalHeader() {
+  const location = useLocation();
+  const noHeaderPaths = ["/login", "/signup"];
+  
+  return !noHeaderPaths.includes(location.pathname) ? <Header /> : null;
 }
 
 export default App;
