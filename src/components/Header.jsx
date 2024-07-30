@@ -15,7 +15,7 @@ function Header() {
             </div>
           </Link>
         </div>
-        <div className="w-[457px] h-10 pl-3 pr-4 py-2 mx-4">
+        <div className="w-[457px] mx-4">
           <UserInput
             type="text"
             placeholder="Search tickets..."
