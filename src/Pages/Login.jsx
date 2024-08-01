@@ -2,8 +2,21 @@ import React from "react";
 import UserInput from "../components/UserInput";
 import UserButton from "../components/UserButton";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../auth/redux/Slice/userSlice";
+import {persistor} from "../index"
 
 function Login() {
+  const userinfo = useSelector(state => state.user.userInfo)
+  const dispatch = useDispatch()
+  
+  function setUserInfo() {
+    userActions.setUser({
+      
+    })
+  }
+  
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
       <div className="flex flex-col items-center mb-20">

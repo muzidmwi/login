@@ -24,7 +24,7 @@ function App() {
 function ConditionalHeader() {
   const location = useLocation();
   const noHeaderPaths = ["/login", "/login/signup"];
-  
+
   return !noHeaderPaths.includes(location.pathname) ? <Header /> : null;
 }
 
