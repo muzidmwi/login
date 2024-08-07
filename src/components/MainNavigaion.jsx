@@ -20,16 +20,16 @@ function MainNavigation() {
           <UserInput type="text" placeholder="Search tickets..." className="w-full" />
         </div>
         <div className="items-center hidden space-x-4 md:flex">
-          <NavLink to="/login">
+          <NavLink to="/auth?mode=login">
             <UserButton
-              className="flex flex-col items-center justify-center h-12 px-4 py-2 text-lg font-bold leading-9 text-white bg-blue-500 rounded-3xl"
+              className="flex flex-col items-center justify-center h-12 px-4 py-2 text-lg font-bold leading-9 text-white bg-stone-700 rounded-3xl"
               text="로그인"
             />
           </NavLink>
-          <NavLink to="/login/signup">
+          <NavLink to="/">
             <UserButton
-              className="flex flex-col items-center justify-center h-12 px-4 py-2 text-lg font-bold leading-9 text-white bg-stone-700 rounded-3xl"
-              text="회원가입"
+              className="flex flex-col items-center justify-center h-12 px-6 py-2 text-lg font-bold leading-9 text-white bg-blue-400 rounded-sm"
+              text="글쓰기"
             />
           </NavLink>
         </div>

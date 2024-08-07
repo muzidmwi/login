@@ -12,7 +12,7 @@ import AuthenticationPage,{action as authAction} from "./Pages/AuthenticationPag
 
 const ConditionalNavigation = () => {
   const location = useLocation();
-  const noHeaderPaths = ["/login", "/signup"];
+  const noHeaderPaths = ["/auth"];
 
   return (
     <>
