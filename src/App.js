@@ -1,31 +1,48 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import React from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
 import NotFound from "./Pages/NotFound";
-import Header from "./components/Header";
+import MainNavigation from "./components/MainNavigaion";
+import AuthenticationPage,{action as authAction} from "./Pages/AuthenticationPage";
+
+const ConditionalNavigation = () => {
+  const location = useLocation();
+  const noHeaderPaths = ["/login", "/signup"];
+
+  return (
+    <>
+      {!noHeaderPaths.includes(location.pathname) && <MainNavigation />}
+      <Outlet />
+    </>
+  );
+};
+
+const router = createBrowserRouter([
+  {
+    element: <ConditionalNavigation />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: 'auth',
+        element: <AuthenticationPage />,
+        action: authAction,
+      }
+    ],
+  },
+]);
 
 function App() {
   return (
-    <div className="absolute w-full">
-      <BrowserRouter>
-        <ConditionalHeader />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login/signup" element={<Signup />} />
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+    <div className="w-full min-h-screen">
+      <RouterProvider router={router} />
     </div>
   );
-}
-
-function ConditionalHeader() {
-  const location = useLocation();
-  const noHeaderPaths = ["/login", "/login/signup"];
-
-  return !noHeaderPaths.includes(location.pathname) ? <Header /> : null;
 }
 
 export default App;
