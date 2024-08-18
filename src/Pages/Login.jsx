@@ -41,7 +41,7 @@ function Login() {
           </Link>
 
           <div>|</div>
-          <Link to="/">
+          <Link to="/FindID">
             <button className="flex flex-col hover:underline">아이디,비밀번호 찾기</button>
           </Link>
         </div>

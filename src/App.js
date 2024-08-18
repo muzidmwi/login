@@ -4,6 +4,9 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import NotFound from "./Pages/NotFound";
 import Header from "./components/Header";
+import FindID from "./Pages/FindID";
+import SettingsPage from "./Pages/SettingPage";
+import Logind from "./Pages/Logind";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/login/signup" element={<Signup />} />
           <Route path="/*" element={<NotFound />} />
+          <Route path="/FindID" element={<FindID />} />
+          <Route path="/SettingPage" element={<SettingsPage />} />
+          <Route path="/Logind" element={<Logind />} />
         </Routes>
       </BrowserRouter>
     </div>
